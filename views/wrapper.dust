@@ -1,0 +1,9 @@
+
+{?pjax}
+  {+partial}{/partial}
+{:else}
+  {>layout /}
+  {<content}
+    {+partial}{/partial}
+  {/content}
+{/pjax}

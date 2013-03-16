@@ -1,0 +1,11 @@
+{
+  "development": {
+    "port": 3000,
+    "session": {
+      "secret": "developing"
+    },
+    "database": {
+      "uri": "mongodb://localhost/collab_dev"
+    }
+  }
+}

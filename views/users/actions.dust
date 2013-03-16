@@ -1,0 +1,99 @@
+{>wrapper /}
+{<partial}
+  <div class="container offset">
+    {>"partials/messages" /}
+    <div class="row">
+      <div class="span4" id="user-login-actions">
+        <form action="/login" method="POST"{^login} class="unfocused"{/login}>
+          <div class="page-header">
+            <h4>
+              Sign in 
+              <small>Please log in to continue</small>
+            </h4>
+          </div>
+        
+          <fieldset class="control-group{?errors.login} error{/errors.login}">
+            <input type="text" name="login" placeholder="Username or email" value="{values.login}">
+            <div class="help-inline">
+              {#errors.login}
+                <p class="error">{msg}</p>
+              {/errors.login}
+            </div>
+          </fieldset>
+          <fieldset class="control-group{?errors.login-password} error{/errors.login-password}">
+            <input type="password" name="login-password" placeholder="Password">
+            <div class="help-inline">
+              {#errors.login-password}
+                <p class="error">{msg}</p>
+              {/errors.login-password}
+            </div>
+          </fieldset>
+          <div class="form-actions">
+            {?redirect}<input type="hidden" name="redirect" value="{redirect}">{/redirect}
+            <button type="submit" class="btn btn-success">Sign In!</button>
+          </div>
+        </form>
+      </div>
+      <div class="span4" id="user-register-actions">
+        <form action="/signup" method="POST"{^register} class="unfocused"{/register}>
+          <div class="page-header">
+            <h4>
+              New to Spartacus? 
+              <small>An account is required</small>
+            </h4>
+          </div>
+          <fieldset class="control-group{?errors.username} error{/errors.username}">
+            <input type="text" name="username" placeholder="User name" value="{values.username}">
+            <div class="help-inline">
+              {#errors.username}
+                <p class="error">{msg}</p>
+              {/errors.username}
+            </div>
+          </fieldset>
+          <fieldset class="control-group{?errors.email} error{/errors.email}">
+            <input type="text" name="email" placeholder="Email address" value="{values.email}">
+            <div class="help-inline">
+              {#errors.email}
+                <p class="error">{msg}</p>
+              {/errors.email}
+            </div>
+          </fieldset>
+          <fieldset class="control-group{?errors.password} error{/errors.password}">
+            <input type="password" name="password" placeholder="Password">
+            <div class="help-inline">
+              {#errors.password}
+                <p class="error">{msg}</p>
+              {/errors.password}
+            </div>
+          </fieldset>
+          <div class="form-actions">
+            {?redirect}<input type="hidden" name="redirect" value="{redirect}">{/redirect}
+            <button type="submit" class="btn btn-success">Sign Up!</button>
+          </div>
+        </form>
+      </div>
+      <div class="span4" id="user-social-actions">
+        <div class="unfocused">
+          <div class="page-header">
+            <h4>Sign In with Social</h4>
+          </div>
+
+          <a href="#facebook" class="btn btn-block btn-primary btn-large">
+            <i class="icon-white icon-facebook"></i> 
+            Log in with Facebook
+          </a>
+
+          <a href="#twitter" class="btn btn-block btn-info btn-large">
+            <i class="icon-white icon-twitter"></i> 
+            Sign in with Twitter
+          </a>
+
+          <a href="#gplus" class="btn btn-danger btn-block btn-large">
+            <i class="icon-white icon-google-plus"></i> 
+            Connect with Google+
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{/partial}

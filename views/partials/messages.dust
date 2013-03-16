@@ -1,0 +1,8 @@
+{?message}
+<div class="container">
+  <div class="alert alert-info">
+    <button class="close" data-dismiss="alert">&times</button>
+    <span>{message}</span>
+  </div>
+</div>
+{/message}
