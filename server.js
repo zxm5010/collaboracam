@@ -1,5 +1,4 @@
 
-var cdn       = require('express-cdn');
 var config    = require('./config');
 var flash     = require('connect-flash');
 var cons      = require('consolidate');
@@ -18,13 +17,13 @@ var app        = express();
 var RedisStore = require('connect-redis')(express);
 
 // Set configuration context
-config = config[app.settings.env];
+app.config = config[app.settings.env];
 
 // Connect to MongoDB
-var db = mongoose.connect(config.database.uri);
+var db = mongoose.connect(app.config.database.uri);
 
 app.configure(function(){
-  app.set('port', process.env.PORT || config.port);
+  app.set('port', process.env.PORT || app.config.port);
   app.set('views', __dirname + '/views');
   // Setup Dust.js templating engine.
   app.engine('dust', cons.dust);  
@@ -36,9 +35,9 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(validator);
   app.use(express.methodOverride());
-  app.use(express.cookieParser(config.session.secret));
+  app.use(express.cookieParser(app.config.session.secret));
   app.use(express.session({
-    secret: config.session.secret,
+    secret: app.config.session.secret,
     store: new RedisStore({
       client: redis
     })
@@ -62,15 +61,17 @@ app.configure('development', function(){
   }));
 });
 
-helpers.loadModels(db);
-helpers.loadRoutes(app, db);
-
 app.get('/', function(req, res, next) {
   res.render('layout', {
     title: 'title'
   });
 });
 
-http.createServer(app).listen(app.get('port'), function(){
+app.server = http.createServer(app);
+
+helpers.loadModels(db);
+helpers.loadRoutes(app, db);
+
+app.server.listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });

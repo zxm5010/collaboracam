@@ -20,10 +20,15 @@ jQuery(function($) {
   var App = {
     init: function() {
       this.DEFAULT_REDIRECT_URI = '/';
+      this.TEST_MEETING = '5153c7e9e15b56057f000001';
       Utils.bindVisibilityFn();
       this.cacheElements();
       this.bindEvents();
       this.setupElements();
+
+      // Temp socket code.
+      this.socket = io.connect('/?meeting=' + this.TEST_MEETING + '&connection=192.168.1.13:8086');
+      this.socket.emit('kill');
     },
 
     cacheElements: function() {

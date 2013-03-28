@@ -100,6 +100,7 @@
     <script src="/js/vendor/bootstrap/bootstrap-dropdown.js"></script>
     <script src="/js/vendor/bootstrap/bootstrap-carousel.js"></script>
     <script src="/js/vendor/jquery-pjax/jquery.pjax.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/main.js?{now}"></script>
   </body>
 </html>

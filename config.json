@@ -5,7 +5,8 @@
       "secret": "developing"
     },
     "database": {
-      "uri": "mongodb://localhost/collab_dev"
-    }
+      "uri": "mongodb://localhost/collaboracam_dev"
+    },
+    "audio_dir": "./public/audio"
   }
 }
