@@ -78,17 +78,17 @@
             <h4>Sign In with Social</h4>
           </div>
 
-          <a href="#facebook" class="btn btn-block btn-primary btn-large">
+          <a href="/facebook/auth" class="btn btn-block btn-primary btn-large">
             <i class="icon-white icon-facebook"></i> 
             Log in with Facebook
           </a>
 
-          <a href="#twitter" class="btn btn-block btn-info btn-large">
+          <a href="/twitter/auth" class="btn btn-block btn-info btn-large">
             <i class="icon-white icon-twitter"></i> 
             Sign in with Twitter
           </a>
 
-          <a href="#gplus" class="btn btn-danger btn-block btn-large">
+          <a href="/google/auth" class="btn btn-danger btn-block btn-large">
             <i class="icon-white icon-google-plus"></i> 
             Connect with Google+
           </a>
